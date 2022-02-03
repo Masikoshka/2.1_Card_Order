@@ -17,25 +17,22 @@ public class CardOrderTest {
     private WebDriver driver;
 
     @BeforeAll
-    public static void setupClass() {
+    public static void setUpAll() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
     public void setUp() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--headless");
-//        driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
     }
 
     @AfterEach
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.quit();
         driver = null;
     }
 
